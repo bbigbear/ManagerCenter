@@ -15,24 +15,6 @@ type LoginController struct {
 	BaseController
 }
 
-func (this *LoginController) Get() {
-
-	//this.StartNotificationTask()
-	//this.TplName = "index.tpl"
-	skey := this.GetString("session")
-	fmt.Println("skey", skey)
-	if skey != "" {
-		fmt.Println("单点登录")
-		n := this.SessionLogin(skey)
-		fmt.Println("n:", n)
-		if n == 1 {
-			fmt.Println("进入首页")
-			this.Redirect("/", 302)
-		}
-	}
-	this.TplName = "login.tpl"
-}
-
 func (this *LoginController) LoginAction() {
 
 	fmt.Println("点击登录按钮")
@@ -90,12 +72,4 @@ func (this *LoginController) LoginAction() {
 	//		fmt.Println("账户密码错误")
 	//		this.ajaxMsg("账户密码错误", MSG_ERR)
 	//	}
-}
-
-func (this *LoginController) Logout() {
-
-	fmt.Println("点击推出按钮")
-	this.DelSession("islogin")
-	this.TplName = "login.tpl"
-
 }

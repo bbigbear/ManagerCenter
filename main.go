@@ -1,7 +1,7 @@
 package main
 
 import (
-	//	"ManagerCenter/models"
+	"ManagerCenter/models"
 	_ "ManagerCenter/routers"
 	"fmt"
 
@@ -14,7 +14,7 @@ import (
 
 func init() {
 	DBConnection()
-	//	RegisterModel()
+	RegisterModel()
 }
 
 func main() {
@@ -47,8 +47,9 @@ func DBConnection() {
 
 	sql := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8", user, passwd, host, db)
 	orm.RegisterDataBase("default", "mysql", sql, maxIdleConns, maxOpenConns)
+
 }
 
-//func RegisterModel() {
-//	orm.RegisterModel()
-//}
+func RegisterModel() {
+	orm.RegisterModel(new(models.Czlx), new(models.Jzdj), new(models.Czdj))
+}

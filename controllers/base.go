@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"ClassCenter/models"
+	"ManagerCenter/models"
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
