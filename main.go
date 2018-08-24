@@ -44,7 +44,6 @@ func DBConnection() {
 	if err != nil {
 		fmt.Println("MaxIdleConns is nil", err)
 	}
-
 	sql := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8", user, passwd, host, db)
 	orm.RegisterDataBase("default", "mysql", sql, maxIdleConns, maxOpenConns)
 
